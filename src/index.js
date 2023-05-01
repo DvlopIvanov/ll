@@ -20,7 +20,6 @@ const App = () => {
     const [entities, setContents] = useState([])
     const credentials = useCredentials(actions.setModal)
     const api = exposeApi(credentials, setContents, actions)
-    console.log('dir from index', directory)
     // Initial fetch
     useEffect(()=> {
        api && api({type: 'list'})
@@ -30,7 +29,6 @@ const App = () => {
     const tree = entities.length && createTree(entities)
     const handleEntities = () => {
         if(!tree) return
-        //fix replace path
         const path = directory == '/' ? '' : directory.replace(/\//g, '.')
         const directories = directory == '/' ? tree : get(tree, path, tree)
         return [

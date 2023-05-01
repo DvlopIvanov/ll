@@ -18,7 +18,6 @@ const exposeApi = (config, setContents, actions) => {
         case 'list': 
           res = await client.send(new ListObjectsCommand({Bucket}))
           setContents(res.Contents || [])
-          // console.log('RESPONSE', res)
           break;
         case 'put':
           res = await client.send(new PutObjectCommand({
@@ -27,7 +26,6 @@ const exposeApi = (config, setContents, actions) => {
             Body,
           }))
           api({type: 'list'})
-          console.log(res)
         break;
         case 'delete':
           res = await client.send(new DeleteObjectCommand({
@@ -48,7 +46,7 @@ const exposeApi = (config, setContents, actions) => {
           }
       }
     } catch(e) {
-      console.log('error',e)
+      console.warn('error',e)
     }
   }
   return api

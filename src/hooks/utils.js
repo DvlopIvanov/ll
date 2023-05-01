@@ -9,12 +9,10 @@ const getCredentials = () => {
     return {secretAccessKey, region, accessKeyId, Bucket}
 }
 
-// const mock = ['bar/zoo/foo.txt', 'loot/moot/bar.txt', 'root.txt']//, 'tsw/wqe/text.txt', 'root/1/text1.txt']
 const createTree = entities => {
     return entities.reduce( (acc, e) =>{
         const [,directories, file] = e.Key.match(/(.+\/)?(.+)/)
         const dirs = directories && directories.split("/").join('.').slice(0, -1)
-        // console.log('Directories',dirs)
         if(dirs){
             !get(acc, dirs) && set(acc, dirs, {files:[]})
             if(file){
