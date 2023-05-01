@@ -1,0 +1,31 @@
+.modal
+  position: absolute
+  display: flex
+  flex-flow: column nowrap
+  background: $navBg
+  padding: 20px
+  left:50%
+  top: 50%
+  transform: translate(-50%,-50%)
+  min-width: 320px
+  .actions
+    display: flex
+    margin-top: 20px
+    justify-content: space-between
+  .close
+    position: absolute
+    top: 10px
+    right: 15px
+    &:hover
+      cursor: pointer
+  h3
+    text-align: center
+    margin-bottom: 15px
+
+  label
+    display: flex
+    justify-content: space-between
+    text-align: center
+  label + label
+    margin-top: 10px
+  
