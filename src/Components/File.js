@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useFs } from '../context'
 
 const ContextMenu = ({api, Key}) => {
-    console.log(api)
     const deleteFile = () => {
         api({type: 'delete', Key})
     }
